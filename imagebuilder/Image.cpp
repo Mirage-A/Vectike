@@ -1,5 +1,4 @@
 #include <string>
-#include "Color.cpp"
 #include "Drawable.cpp"
 #include <vector>
 

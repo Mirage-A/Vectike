@@ -1,5 +1,4 @@
 #include "Drawable.cpp"
-#include "Color.cpp"
 
 class Vector : Drawable{
     Color GetPointColor(double x, double y){
