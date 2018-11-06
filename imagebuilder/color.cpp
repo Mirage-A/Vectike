@@ -11,27 +11,27 @@ Color::Color(double alpha, double r, double g, double b) {
 Color Color::CombineWith(Color new_color) const {
     double k;
     Color ans(0,0,0,0);
-    k = new_color.getAlpha() + (1 - this->getAlpha()) * (1 - new_color.getAlpha());
-    ans.r_ = this->getRed() * this->getAlpha() + (new_color.getRed() - this->getAlpha() * this->getRed()) * k;
-    ans.g_ = this->getGreen() * this->getAlpha() + (new_color.getGreen() - this->getAlpha() * this->getGreen()) * k;
-    ans.b_ = this->getBlue() * this->getAlpha() + (new_color.getBlue() - this->getAlpha() * this->getBlue()) * k;
-    ans.alpha_ = this->getAlpha() + new_color.getAlpha() * (1 - this->getAlpha());
+    k = new_color.GetAlpha() + (1 - this->GetAlpha()) * (1 - new_color.GetAlpha());
+    ans.r_ = this->GetRed() * this->GetAlpha() + (new_color.GetRed() - this->GetAlpha() * this->GetRed()) * k;
+    ans.g_ = this->GetGreen() * this->GetAlpha() + (new_color.GetGreen() - this->GetAlpha() * this->GetGreen()) * k;
+    ans.b_ = this->GetBlue() * this->GetAlpha() + (new_color.GetBlue() - this->GetAlpha() * this->GetBlue()) * k;
+    ans.alpha_ = this->GetAlpha() + new_color.GetAlpha() * (1 - this->GetAlpha());
     return ans;
 }
 
-double Color::getRed() const {
+double Color::GetRed() const {
     return this->r_;
 }
 
-double Color::getGreen() const {
+double Color::GetGreen() const {
     return this->g_;
 }
 
-double Color::getBlue() const {
+double Color::GetBlue() const {
     return this->b_;
 }
 
-double Color::getAlpha() const {
+double Color::GetAlpha() const {
     return this->alpha_;
 }
 Color Color::EmptyColor() {

@@ -7,6 +7,8 @@
 using namespace std;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine, int nCmdShow) {
+    Color color = Color::Green().CombineWith(Color::Black());
+    std::cout << color.GetAlpha();
     std::cout << "Hello, World!" << std::endl;
     EditorFrame myEditor;
     myEditor.WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
@@ -17,7 +19,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     for(int i = 0; i < wSize; ++i) {
         for(int k = 0; k < hSize; ++k) {
             myColor = myImage.GetPixelColor(i, k);
-            myEditor.DrawPixel(i, k, myColor.getRed(),myColor.getGreen(),myColor.getBlue());
+            myEditor.DrawPixel(i, k, myColor.GetRed(),myColor.GetGreen(),myColor.GetBlue());
         }
     }
     myEditor.CloseWindow();

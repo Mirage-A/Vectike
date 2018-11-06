@@ -9,7 +9,7 @@ class Drawable;
 
 class Transform {
     // Тут CLion выдаёт ошибку, хотя всё нормально компилится и работает
-    virtual void ApplyTo(Drawable drawable);
+    virtual void ApplyTo(Drawable drawable) const;
 };
 
 
