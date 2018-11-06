@@ -18,6 +18,10 @@ public:
     static Color Red();
     static Color Green();
     static Color Blue();
+    double getRed() const;
+    double getGreen() const;
+    double getBlue() const;
+    double getAlpha() const;
 };
 
 #endif //VECTIKE_COLOR_H

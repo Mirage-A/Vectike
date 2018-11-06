@@ -11,14 +11,29 @@ Color::Color(double alpha, double r, double g, double b) {
 Color Color::CombineWith(Color new_color) const {
     double k;
     Color ans(0,0,0,0);
-    k = new_color.alpha_ + (1 - this->alpha_) * (1 - new_color.alpha_);
-    ans.r_ = this->r_ * this->alpha_ + (new_color.r_ - this->alpha_ * this->r_) * k;
-    ans.g_ = this->g_ * this->alpha_ + (new_color.g_ - this->alpha_ * this->g_) * k;
-    ans.b_ = this->b_ * this->alpha_ + (new_color.b_ - this->alpha_ * this->b_) * k;
-    ans.alpha_ = this->alpha_ + new_color.alpha_ * (1 - this->alpha_);
+    k = new_color.getAlpha() + (1 - this->getAlpha()) * (1 - new_color.getAlpha());
+    ans.r_ = this->getRed() * this->getAlpha() + (new_color.getRed() - this->getAlpha() * this->getRed()) * k;
+    ans.g_ = this->getGreen() * this->getAlpha() + (new_color.getGreen() - this->getAlpha() * this->getGreen()) * k;
+    ans.b_ = this->getBlue() * this->getAlpha() + (new_color.getBlue() - this->getAlpha() * this->getBlue()) * k;
+    ans.alpha_ = this->getAlpha() + new_color.getAlpha() * (1 - this->getAlpha());
     return ans;
 }
 
+double Color::getRed() const {
+    return this->r_;
+}
+
+double Color::getGreen() const {
+    return this->g_;
+}
+
+double Color::getBlue() const {
+    return this->b_;
+}
+
+double Color::getAlpha() const {
+    return this->alpha_;
+}
 Color Color::EmptyColor() {
     Color c(0, 0, 0, 0);
     return c;
