@@ -40,26 +40,26 @@ Color Color::EmptyColor() {
 }
 
 Color Color::Black() {
-    Color c(255, 0, 0, 0);
+    Color c(1, 0, 0, 0);
     return c;
 }
 
 Color Color::White() {
-    Color c(255, 255, 255, 255);
+    Color c(1, 255, 255, 255);
     return c;
 }
 
 Color Color::Red() {
-    Color c(255, 255, 0, 0);
+    Color c(1, 255, 0, 0);
     return c;
 }
 
 Color Color::Green() {
-    Color c(255, 0, 255, 0);
+    Color c(1, 0, 255, 0);
     return c;
 }
 
 Color Color::Blue() {
-    Color c(255, 0, 0, 255);
+    Color c(1, 0, 0, 255);
     return c;
 }
