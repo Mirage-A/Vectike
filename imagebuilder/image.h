@@ -23,6 +23,8 @@ public:
 
     //Заполняет матрицу изображения
     void Render();
+
+    Color GetPixelColor(size_t x, size_t y);
 };
 
 #endif //VECTIKE_IMAGE_H

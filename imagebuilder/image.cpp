@@ -30,3 +30,7 @@ void Image::Render() {
         }
     }
 }
+
+Color Image::GetPixelColor(size_t x, size_t y) {
+    return matrix_[x][y];
+}
