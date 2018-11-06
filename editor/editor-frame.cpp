@@ -2,8 +2,6 @@
 // Включаем необходимый заголовочный файл для Windows-программ
 #include <windows.h>
 
-// Объявление функции окна (оконной процедуры)
-LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 HINSTANCE hInst; // Идентификатор приложения
 
@@ -11,7 +9,7 @@ HINSTANCE hInst; // Идентификатор приложения
 LPCSTR AppName = "MyProgramm";
 
 // Точка входа в программу - функция WinMain
-int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine, int nCmdShow)
 {
     HWND hWnd; // Уникальный идентификатор окна (handle)
@@ -69,8 +67,7 @@ int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     return msg.wParam;
 }
 
-// Оконная процедура
-LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK EditorFrame::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch(msg)
     {

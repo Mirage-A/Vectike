@@ -7,8 +7,10 @@
 
 class EditorFrame{
 private:
+    // Объявление функции окна (оконной процедуры)
     LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 public:
+    // Оконная процедура
     int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpCmdLine, int nCmdShow);
     //TODO Окно редактора
