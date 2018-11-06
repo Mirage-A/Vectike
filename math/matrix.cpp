@@ -70,6 +70,6 @@ double Matrix::GetElement(size_t row, size_t column) const {
     return matrix_[row][column];
 }
 
-double Matrix::SetElement(size_t row, size_t column, double new_value) {
+void Matrix::SetElement(size_t row, size_t column, double new_value) {
     matrix_[row][column] = new_value;
 }

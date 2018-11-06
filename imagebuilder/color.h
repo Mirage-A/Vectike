@@ -12,11 +12,12 @@ public:
     Color CombineWith(Color new_color) const;
 
     // Возвращает прозрачный цвет
-    static Color EmptyColor(){
-        Color c(0, 0, 0, 0);
-        return c;
-    }
-
+    static Color EmptyColor();
+    static Color Black();
+    static Color White();
+    static Color Red();
+    static Color Green();
+    static Color Blue();
 };
 
 #endif //VECTIKE_COLOR_H

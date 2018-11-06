@@ -18,3 +18,33 @@ Color Color::CombineWith(Color new_color) const {
     ans.alpha_ = this->alpha_ + new_color.alpha_ * (1 - this->alpha_);
     return ans;
 }
+
+Color Color::EmptyColor() {
+    Color c(0, 0, 0, 0);
+    return c;
+}
+
+Color Color::Black() {
+    Color c(255, 0, 0, 0);
+    return c;
+}
+
+Color Color::White() {
+    Color c(255, 255, 255, 255);
+    return c;
+}
+
+Color Color::Red() {
+    Color c(255, 255, 0, 0);
+    return c;
+}
+
+Color Color::Green() {
+    Color c(255, 0, 255, 0);
+    return c;
+}
+
+Color Color::Blue() {
+    Color c(255, 0, 0, 255);
+    return c;
+}

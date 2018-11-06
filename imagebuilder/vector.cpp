@@ -12,6 +12,7 @@ Vector::Vector(double x1, double y1, double x2, double y2, double width, Color c
 
 Color Vector::GetPointColor(double x, double y) const {
     //TODO
+    if(y - x <= 0) return color_;
     return Color::EmptyColor();
 }
 void Vector::Move(double dx, double dy) {

@@ -34,6 +34,6 @@ public:
 
     double GetElement(size_t row, size_t column) const;
 
-    double SetElement(size_t row, size_t column, double new_value);
+    void SetElement(size_t row, size_t column, double new_value);
 };
 #endif //VECTIKE_MATRIX_H

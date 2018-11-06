@@ -13,10 +13,16 @@ private:
     //ось y направлена вверх
     std::vector<std::vector<Color>> matrix_; //Матрица цветов пикселей
     std::vector<Drawable> drawables_; //Список всех фигур
+    size_t width_, height_;
+    Color background_ = Color::EmptyColor();
 public:
-    //Получаем из image-builder список векторов drawables
-    //перебираем все пиксели, все векторы и рисуем в матрице image_
-    Image(std::vector<Drawable> drawables, int width, int height, Color backGround);
+    Image(size_t width, size_t height, Color background, std::vector<Drawable> &drawables);
+
+    //Изменяем вектор drawables_ на данный
+    void SetDrawables(std::vector<Drawable> &drawables);
+
+    //Заполняет матрицу изображения
+    void Render();
 };
 
 #endif //VECTIKE_IMAGE_H

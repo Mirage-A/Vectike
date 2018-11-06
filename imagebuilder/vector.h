@@ -5,7 +5,7 @@
 #include <vector>
 #include "drawable.h"
 
-class Vector : Drawable {
+class Vector : public Drawable {
 private:
     std::vector<Transform> transforms_;
     Color color_ = Color::EmptyColor();
