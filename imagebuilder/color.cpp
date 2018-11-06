@@ -9,5 +9,5 @@ Color::Color(double alpha, double r, double g, double b) {
 }
 
 Color Color::CombineWith(Color new_color) const {
-    return Color::EmptyColor();
+    return new_color;
 }

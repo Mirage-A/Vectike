@@ -5,10 +5,6 @@
 #ifndef VECTIKE_TRANSFORM_H
 #define VECTIKE_TRANSFORM_H
 
-//#include "drawable.h"
-
-
-
 class Drawable;
 
 class Transform {
