@@ -7,8 +7,6 @@
 using namespace std;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine, int nCmdShow) {
-    Color color = Color::Green().CombineWith(Color::Black());
-    std::cout << color.GetAlpha();
     std::cout << "Hello, World!" << std::endl;
     EditorFrame myEditor;
     myEditor.WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);

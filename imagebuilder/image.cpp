@@ -1,7 +1,7 @@
 #include "image.h"
+#include "vector.h"
 
-
-Image::Image(size_t width, size_t height, Color background, std::vector<Drawable> &drawables) {
+Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) {
     width_ = width;
     height_ = height;
     background_ = background;
@@ -15,7 +15,7 @@ Image::Image(size_t width, size_t height, Color background, std::vector<Drawable
     }
 }
 
-void Image::SetDrawables(std::vector<Drawable> &drawables) {
+void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
     drawables_ = drawables;
 }
 
@@ -24,7 +24,7 @@ void Image::Render() {
         for(size_t j = 0; j < height_; ++j) {
             matrix_[i][j] = background_;
             for(int k = 0; k < drawables_.size(); ++k) {
-                matrix_[i][j] = matrix_[i][j].CombineWith(drawables_[k].GetPointColor((double) i / (double) width_,
+                matrix_[i][j] = matrix_[i][j].CombineWith(drawables_[k]->GetPointColor((double) i / (double) width_,
                         (double) (height_ - j - 1) / (double) height_));
             }
         }
@@ -33,4 +33,10 @@ void Image::Render() {
 
 Color Image::GetPixelColor(size_t x, size_t y) {
     return matrix_[x][y];
+}
+
+void Image::SetSize(size_t new_width, size_t new_height) {
+    width_ = new_width;
+    height_ = new_height;
+    Render();
 }

@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include "vector.h"
 
 Vector::Vector(double x1, double y1, double x2, double y2, double width, Color color) {
@@ -10,7 +11,7 @@ Vector::Vector(double x1, double y1, double x2, double y2, double width, Color c
     color_ = color;
 }
 
-Color Vector::GetPointColor(double x, double y) const {
+Color Vector::GetPointColor(double x, double y) const{
     //TODO
     if(y - x <= 0) return color_;
     return Color::EmptyColor();
@@ -24,6 +25,6 @@ void Vector::Move(double dx, double dy) {
 void Vector::Rotate(double angle, double center_x, double center_y) {
     //TODO
 }
-void Vector::AddTransform(Transform transform) {
+void Vector::AddTransform(std::shared_ptr<Transform> transform) {
     transforms_.push_back(transform);
 }
