@@ -6,13 +6,11 @@
 #define VECTIKE_EDITOR_FRAME_H
 
 class EditorFrame{
-private:
-    // Объявление функции окна (оконной процедуры)
-    LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 public:
     // Оконная процедура
-    int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                       LPSTR lpCmdLine, int nCmdShow);
+    int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+    void DrawPixel(int x, int y, int r, int g, int b);
+    int WINAPI CloseWindow();
     //TODO Окно редактора
 };
 
