@@ -9,7 +9,7 @@ Image::Image(std::vector<Drawable> drawables, int width, int height, Color backG
             color_vector.push_back(backGround);
             for(int k = 0; k < drawables.size(); ++k) {
                 color_vector[j] = color_vector[j].CombineWith(drawables[k].GetPointColor((double) i / (double) width,
-                        (double) j / (double) height));
+                        (double) (height - j - 1) / (double) height));
             }
         }
         matrix_.push_back(color_vector);
