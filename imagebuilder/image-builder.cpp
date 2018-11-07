@@ -1,5 +1,5 @@
 #include "image-builder.h"
-#include "vector.h"
+#include "drawables/vector.h"
 
 Image ImageBuilder::CreateImage(std::string path, size_t width, size_t height) {
     //TODO

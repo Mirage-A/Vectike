@@ -1,5 +1,5 @@
 #include "image.h"
-#include "vector.h"
+#include "drawables/vector.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) {
     width_ = width;

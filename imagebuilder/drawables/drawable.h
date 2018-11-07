@@ -1,8 +1,8 @@
 #ifndef VECTIKE_DRAWABLE_H
 #define VECTIKE_DRAWABLE_H
 
-#include "color.h"
-#include "transform.h"
+#include "../color.h"
+#include "../transforms/transform.h"
 #include <memory>
 
 class Drawable{

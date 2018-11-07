@@ -2,7 +2,7 @@
 #define VECTIKE_IMAGE_H
 
 #include <string>
-#include "drawable.h"
+#include "drawables/drawable.h"
 #include <vector>
 #include <memory>
 

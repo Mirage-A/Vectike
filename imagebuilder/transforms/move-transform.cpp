@@ -1,5 +1,5 @@
 #include "move-transform.h"
-#include "drawable.h"
+#include "../drawables/drawable.h"
 
 MoveTransform::MoveTransform(double dx, double dy) {
     dx_ = dx;
