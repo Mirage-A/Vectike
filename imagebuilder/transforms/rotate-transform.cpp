@@ -6,6 +6,6 @@ RotateTransform::RotateTransform(double angle, double center_x, double center_y)
     center_x_ = center_x;
     center_y_ = center_y;
 }
-void RotateTransform::ApplyTo(Drawable drawable) const {
-    drawable.Rotate(angle_, center_x_, center_y_);
+void RotateTransform::ApplyTo(std::shared_ptr<Drawable> drawable) const {
+    drawable->Rotate(angle_, center_x_, center_y_);
 }

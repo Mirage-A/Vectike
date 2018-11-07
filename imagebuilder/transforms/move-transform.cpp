@@ -6,6 +6,6 @@ MoveTransform::MoveTransform(double dx, double dy) {
     dy_ = dy;
 }
 
-void MoveTransform::ApplyTo(Drawable drawable) const {
-    drawable.Move(dx_, dy_);
+void MoveTransform::ApplyTo(std::shared_ptr<Drawable> drawable) const {
+    drawable->Move(dx_, dy_);
 }

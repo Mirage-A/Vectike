@@ -1,6 +1,3 @@
-//
-// Created by Егор on 06.11.2018.
-//
 #include <windows.h> // Включаем необходимый заголовочный файл для Windows-программ
 #ifndef VECTIKE_EDITOR_FRAME_H
 #define VECTIKE_EDITOR_FRAME_H
