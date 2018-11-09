@@ -7,6 +7,11 @@ Image::Image(size_t width, size_t height, Color background, std::vector<std::sha
     drawables_ = drawables;
 }
 
+Image::Image() {
+    width_ = 0;
+    height_ = 0;
+    background_ = Color::EmptyColor();
+}
 void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
     drawables_ = drawables;
 }

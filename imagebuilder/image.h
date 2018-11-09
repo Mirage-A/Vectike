@@ -17,6 +17,8 @@ private:
     size_t width_, height_;
     Color background_ = Color::EmptyColor();
 public:
+    Image();
+
     Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables);
 
     //Изменяем вектор drawables_ на данный
