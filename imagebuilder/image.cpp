@@ -2,8 +2,7 @@
 #include "drawables/vector.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) {
-    width_ = width;
-    height_ = height;
+    SetSize(width, height);
     background_ = background;
     drawables_ = drawables;
     for(size_t i = 0; i < width; ++i) {
@@ -38,5 +37,4 @@ Color Image::GetPixelColor(size_t x, size_t y) {
 void Image::SetSize(size_t new_width, size_t new_height) {
     width_ = new_width;
     height_ = new_height;
-    Render();
 }

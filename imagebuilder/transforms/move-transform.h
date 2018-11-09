@@ -8,7 +8,7 @@ private:
     double dx_, dy_;
 public:
     MoveTransform(double dx, double dy);
-    void ApplyTo(std::shared_ptr<Drawable> drawable) const;
+    Point GetOriginalPoint(Point transformed_point) const;
 };
 
 #endif //VECTIKE_MOVE_TRANSFORM_H
