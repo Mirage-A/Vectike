@@ -37,7 +37,8 @@ int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInsta
     WNDCLASS wc;
     // Инициализируем выделенную для структуры память нулями
     ZeroMemory(&wc, sizeof(wc));
-    wc.style = CS_HREDRAW | CS_VREDRAW;
+    //wc.style = CS_HREDRAW | CS_VREDRAW;
+    wc.style = 0;
     wc.lpfnWndProc = (WNDPROC)WndProc;
     wc.hInstance = hInst;
     wc.hIcon = LoadIcon(hInst, IDI_APPLICATION);

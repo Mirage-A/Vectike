@@ -10,10 +10,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     std::cout << "Hello, World!" << std::endl;
     EditorFrame myEditor;
     myEditor.WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
-    ImageBuilder myImageBuilder;
     double wSize = 200,hSize = 100;
     Color myColor(0, 0, 0 , 0);
-    Image myImage = myImageBuilder.CreateImage("",wSize,hSize);
+    Image myImage = ImageBuilder::CreateImage("",wSize,hSize);
     for(int i = 0; i < wSize; ++i) {
         for(int k = 0; k < hSize; ++k) {
             myColor = myImage.GetPixelColor(i, k);
