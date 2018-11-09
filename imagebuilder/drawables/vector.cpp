@@ -8,7 +8,7 @@ Vector::Vector(double x1, double y1, double x2, double y2, double width, Color c
     length_ = sqrt(dx * dx + dy * dy);
     width_ = width;
     color_ = color;
-    double angle = MathUtils::GetAngle(dx / length_, dy / length_);
+    double angle = MathUtils::GetAngle(dy / length_, dx / length_);
     AddTransform(std::shared_ptr<Transform>(new RotateTransform(angle, 0, 0)));
     AddTransform(std::shared_ptr<Transform>(new MoveTransform(x1, y1)));
 }

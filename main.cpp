@@ -10,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     std::cout << "Hello, World!" << std::endl;
     EditorFrame myEditor;
     myEditor.WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
-    double wSize = 200,hSize = 100;
+    double wSize = 200,hSize = 200;
     Color myColor(0, 0, 0 , 0);
     Image myImage = ImageBuilder::CreateImage("",wSize,hSize);
     for(int i = 0; i < wSize; ++i) {
