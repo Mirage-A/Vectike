@@ -1,14 +1,23 @@
 // Включаем необходимый заголовочный файл для Windows-программ
 #include <windows.h>
 #include "editor-frame.h"
-// Объявление функции окна (оконной процедуры)
-HWND hWnd; // Уникальный идентификатор окна (handle)
-HINSTANCE hInst; // Идентификатор приложения
-HDC dc;
-MSG msg; // Объявление структуры типа MSG, для работы с сообщениями
-// Указатель на константную строку символов - имя программы и класса окна
-LPCSTR AppName = "MyProgramm";
-// Оконная процедура
+#include <iostream>
+#include "../imagebuilder/image-builder.h"
+#include "editor-logic.h"
+EditorFrame::EditorFrame(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+                         LPSTR lpCmdLine, int nCmdShow)
+{
+    WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
+    double wSize = 200,hSize = 200;
+    Color myColor(0, 0, 0 , 0);
+    Image myImage = ImageBuilder::CreateImage("",wSize,hSize);
+    for(int i = 0; i < wSize; ++i) {
+        for(int k = 0; k < hSize; ++k) {
+            myColor = myImage.GetPixelColor(i, k);
+            editor_logic.DrawPixel(dc, i, k, myColor.GetRed(),myColor.GetGreen(),myColor.GetBlue());
+        }
+    }
+}
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch(msg)
@@ -16,15 +25,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         case WM_DESTROY:
             PostQuitMessage(0);
             break;
-
+        case WM_SIZE:
+            editor_logic.ChangePictureSize(dc, HIWORD(lParam), LOWORD(lParam));
+            break;
         default:
             return DefWindowProc(hWnd, msg, wParam, lParam);
     }
 
     return 0;
-}
-void EditorFrame::DrawPixel(int x, int y, int r, int g, int b) {
-    SetPixel(dc, x, y, RGB(r, g, b));
 }
 // Точка входа в программу - функция WinMain
 int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
