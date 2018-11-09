@@ -8,16 +8,16 @@ class EditorFrame{
 private:
     HWND hWnd; // Уникальный идентификатор окна (handle)
     HINSTANCE hInst; // Идентификатор приложения
-    HDC dc;
     MSG msg;
-    EditorLogic editor_logic;
     LPCSTR AppName = "MyProgramm";
 public:
+    static EditorLogic editor_logic;
+    static HDC dc;
     // Оконная процедура
-    int WINAPI WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+    int WINAPI WindowCreation(HINSTANCE &hInstance, HINSTANCE &hPrevInstance, LPSTR &lpCmdLine, int nCmdShow);
     int WINAPI CloseWindow();
-    EditorFrame(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                LPSTR lpCmdLine, int nCmdShow);
+    EditorFrame(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
+                LPSTR &lpCmdLine, int nCmdShow);
     //TODO Окно редактора
 };
 

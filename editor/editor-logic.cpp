@@ -1,12 +1,11 @@
-//
-// Created by гриша on 09.11.2018.
-//
-
 #include "editor-logic.h"
-void EditorLogic::DrawPixel(HDC dc, int x, int y, int r, int g, int b) {
+void EditorLogic::DrawPixel(HDC &dc, size_t x, size_t y, int r, int g, int b) {
     SetPixel(dc, x, y, RGB(r, g, b));
 }
-void EditorLogic::ChangePictureSize(HDC dc, size_t w_size, size_t h_size) {
+void EditorLogic::ChangePictureSize(HDC &dc, size_t w_size, size_t h_size) {
+
+
+
     image_.SetSize(w_size, h_size);
     for(int i = 0; i < w_size; ++i) {
         for(int k = 0; k < h_size; ++k) {

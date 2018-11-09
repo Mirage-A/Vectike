@@ -2,19 +2,26 @@
 #include <windows.h>
 #include "editor-frame.h"
 #include <iostream>
+#include <winspool.h>
 #include "../imagebuilder/image-builder.h"
 #include "editor-logic.h"
-EditorFrame::EditorFrame(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                         LPSTR lpCmdLine, int nCmdShow)
+
+EditorLogic EditorFrame::editor_logic;
+HDC EditorFrame::dc;
+
+EditorFrame::EditorFrame(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
+                         LPSTR &lpCmdLine, int nCmdShow)
 {
+
     WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
-    double wSize = 200,hSize = 200;
+    //EditorFrame::editor_logic = EditorLogic();
+    size_t wSize = 200,hSize = 200;
     Color myColor(0, 0, 0 , 0);
     Image myImage = ImageBuilder::CreateImage("",wSize,hSize);
-    for(int i = 0; i < wSize; ++i) {
-        for(int k = 0; k < hSize; ++k) {
+    for(size_t i = 0; i < wSize; ++i) {
+        for(size_t k = 0; k < hSize; ++k) {
             myColor = myImage.GetPixelColor(i, k);
-            editor_logic.DrawPixel(dc, i, k, myColor.GetRed(),myColor.GetGreen(),myColor.GetBlue());
+            EditorFrame::editor_logic.DrawPixel(dc, i, k, myColor.GetRed(),myColor.GetGreen(),myColor.GetBlue());
         }
     }
 }
@@ -26,7 +33,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
             PostQuitMessage(0);
             break;
         case WM_SIZE:
-            editor_logic.ChangePictureSize(dc, HIWORD(lParam), LOWORD(lParam));
+            EditorFrame::editor_logic.ChangePictureSize(EditorFrame::dc, HIWORD(lParam), LOWORD(lParam));
             break;
         default:
             return DefWindowProc(hWnd, msg, wParam, lParam);
@@ -35,8 +42,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 // Точка входа в программу - функция WinMain
-int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                   LPSTR lpCmdLine, int nCmdShow)
+int WINAPI EditorFrame::WindowCreation(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
+                   LPSTR &lpCmdLine, int nCmdShow)
 {
 
     hInst = hInstance; // Сохраняем идентификатор приложения
@@ -70,7 +77,7 @@ int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInsta
 
     ShowWindow(hWnd, SW_SHOW); // Отображаем окно
     UpdateWindow(hWnd); // Перерисовываем окно
-    dc = GetDC(hWnd);
+    EditorFrame::dc = GetDC(hWnd);
     return msg.wParam;
 }
 int WINAPI EditorFrame::CloseWindow() {
