@@ -62,24 +62,7 @@ int WINAPI EditorFrame::WindowCreation(HINSTANCE hInstance, HINSTANCE hPrevInsta
 
     ShowWindow(hWnd, SW_SHOW); // Отображаем окно
     UpdateWindow(hWnd); // Перерисовываем окно
-
-    // Стандартный цикл обработки сообщения
-   // HBRUSH brush; // создаём кисть
     dc = GetDC(hWnd);
-   // brush = CreateSolidBrush(RGB(0, 255, 0)); // CreateHatchBrush для штриховки
-   // SelectObject(dc, brush); // выбираем кисть
-    //Rectangle(dc, 0, 0, 30, 40); // рисуем прямоугольничек
-   // MoveToEx(dc,20,20,0); // рисуем отрезок
-   // LineTo(dc,56,69);
-   // Ellipse(dc, 20, 80, 10, 56); // рисуем эллипс
-   // POINT poly[3] = { {7,260 },{ 130 , 260 },{130/2, 200} }; // рисуем многоугольник по координатам вершин, которые храняться в poly
-   // Polygon(dc, poly, 3);
-    //while(GetMessage(&msg, NULL, 0, 0))
-    //{
-        //TranslateMessage(&msg);
-        //DispatchMessage(&msg);
-    //}
-    //DeleteObject(brush); // удаляем кисть
     return msg.wParam;
 }
 int WINAPI EditorFrame::CloseWindow() {
