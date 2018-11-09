@@ -5,13 +5,6 @@ Image::Image(size_t width, size_t height, Color background, std::vector<std::sha
     SetSize(width, height);
     background_ = background;
     drawables_ = drawables;
-    for(size_t i = 0; i < width; ++i) {
-        std::vector<Color> color_vector;
-        for(size_t j = 0; j < height; ++j) {
-            color_vector.push_back(background);
-        }
-        matrix_.push_back(color_vector);
-    }
 }
 
 void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
@@ -37,4 +30,11 @@ Color Image::GetPixelColor(size_t x, size_t y) {
 void Image::SetSize(size_t new_width, size_t new_height) {
     width_ = new_width;
     height_ = new_height;
+    for(size_t i = 0; i < width_; ++i) {
+        std::vector<Color> color_vector;
+        for(size_t j = 0; j < height_; ++j) {
+            color_vector.push_back(background_);
+        }
+        matrix_.push_back(color_vector);
+    }
 }
