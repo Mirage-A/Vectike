@@ -1,13 +1,12 @@
 #ifndef VECTIKE_EDITOR_LOGIC_H
 #define VECTIKE_EDITOR_LOGIC_H
 #include <windows.h>
-#include "../imagebuilder/image-builder.h"
 #include <string>
+#include "../imagebuilder/image.h"
 
 class EditorLogic {
-private:
-    Image image_;
 public:
+    std::shared_ptr<Image> image_;
     EditorLogic();
     void LoadImage(std::string path, size_t w_size, size_t h_size);
     void DrawPixel(HDC &dc, size_t x, size_t y, int r, int g, int b);

@@ -1,18 +1,30 @@
+#include <iostream>
 #include "image.h"
 #include "drawables/vector.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) {
     width_ = 0;
     height_ = 0;
-    SetSize(width, height);
     background_ = background;
     drawables_ = drawables;
+    SetSize(width, height);
 }
 
 Image::Image() {
     width_ = 0;
     height_ = 0;
     background_ = Color::EmptyColor();
+}
+
+Image::Image(std::string path) {
+    //TODO загрузка изображения из файла
+    width_ = 0;
+    height_ = 0;
+
+    background_ = Color::Green();
+    Vector test_vector(0.2, 0.8, 1, 0.4, 0.1, Color::Black());
+    std::shared_ptr<Drawable> ptr(&test_vector);
+    drawables_.push_back(ptr);
 }
 void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
     drawables_ = drawables;
@@ -35,6 +47,7 @@ Color Image::GetPixelColor(size_t x, size_t y) {
 }
 
 void Image::SetSize(size_t new_width, size_t new_height) {
+    //std::cout << background_.GetAlpha() << " " << background_.GetRed() << " " << background_.GetGreen() << " " << background_.GetBlue() << std::endl;
     if(new_width > width_) {
         for(size_t i = width_; i < new_width; ++i) {
             std::vector<Color> color_vector;

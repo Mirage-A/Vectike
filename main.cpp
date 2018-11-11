@@ -2,8 +2,6 @@
 #include <vector>
 #include "editor/editor-frame.h"
 #include <windows.h>
-#include "imagebuilder/image-builder.h"
-#include "imagebuilder/image.h"
 using namespace std;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine, int nCmdShow) {

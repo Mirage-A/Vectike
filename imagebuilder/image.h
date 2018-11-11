@@ -21,6 +21,9 @@ public:
 
     Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables);
 
+    //Загружает изображение по данному пути. После вызова конструктора обычно вызывается SetSize
+    Image(std::string path);
+
     //Изменяем вектор drawables_ на данный
     void SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables);
 

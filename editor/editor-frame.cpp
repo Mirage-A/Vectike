@@ -3,7 +3,6 @@
 #include "editor-frame.h"
 #include <iostream>
 #include <winspool.h>
-#include "../imagebuilder/image-builder.h"
 #include "editor-logic.h"
 
 EditorLogic EditorFrame::editor_logic;
@@ -14,14 +13,12 @@ EditorFrame::EditorFrame(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
 {
 
     WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
-    //EditorFrame::editor_logic = EditorLogic();
-    size_t wSize = 200,hSize = 200;
-    Color myColor(0, 0, 0 , 0);
-    Image myImage = ImageBuilder::CreateImage("",wSize,hSize);
-    for(size_t i = 0; i < wSize; ++i) {
-        for(size_t k = 0; k < hSize; ++k) {
-            myColor = myImage.GetPixelColor(i, k);
-            EditorFrame::editor_logic.DrawPixel(dc, i, k, myColor.GetRed(),myColor.GetGreen(),myColor.GetBlue());
+    size_t w_size = 200, h_size = 200;
+    editor_logic.LoadImageA("", w_size, h_size);
+    for(size_t i = 0; i < w_size; ++i) {
+        for(size_t k = 0; k < h_size; ++k) {
+            Color pixel_color = editor_logic.image_->GetPixelColor(i, k);
+            EditorFrame::editor_logic.DrawPixel(dc, i, k, pixel_color.GetRed(), pixel_color.GetGreen(), pixel_color.GetBlue());
         }
     }
 }
