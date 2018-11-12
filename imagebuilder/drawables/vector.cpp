@@ -24,12 +24,5 @@ bool Vector::ContainsPoint(Point p) const {
 
 Color Vector::GetPointColor(double x, double y) const{
     //TODO изменение длины/ширины со временем
-    Point current_point(x, y);
-    for(auto iter = transforms_.rbegin(); iter != transforms_.rend(); ++iter) {
-        current_point = iter->get()->GetOriginalPoint(current_point);
-    }
-    return ContainsPoint(current_point) ? color_ : Color::EmptyColor();
-}
-void Vector::AddTransform(std::shared_ptr<Transform> transform) {
-    transforms_.push_back(transform);
+    return ContainsPoint(GetOriginalPoint(x, y)) ? color_ : Color::EmptyColor();
 }

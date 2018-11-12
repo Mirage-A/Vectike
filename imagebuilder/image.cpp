@@ -1,6 +1,7 @@
 #include <iostream>
 #include "image.h"
 #include "drawables/vector.h"
+#include "drawables/rounded-vector.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) :
         width_(width), height_(height), background_(background),drawables_(drawables) {
@@ -19,6 +20,10 @@ Image::Image(std::string path) : background_(Color::Green()){
     Vector* test_ptr = new Vector(0.2, 0.8, 1, 0.4, 0.1, Color::Black());
     std::shared_ptr<Drawable> ptr(test_ptr);
     drawables_.push_back(ptr);
+
+    RoundedVector* test_ptr1 = new RoundedVector(0.7, 0.4, 0.2, 0.15, 0.05, Color::Blue());
+    std::shared_ptr<Drawable> ptr1(test_ptr1);
+    drawables_.push_back(ptr1);
 }
 void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
     drawables_ = drawables;
