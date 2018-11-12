@@ -1,10 +1,9 @@
+#include <iostream>
 #include "editor-logic.h"
 void EditorLogic::DrawPixel(HDC &dc, size_t x, size_t y, int r, int g, int b) {
     SetPixel(dc, x, y, RGB(r, g, b));
 }
 void EditorLogic::ChangePictureSize(HDC &dc, size_t w_size, size_t h_size) {
-
-
 
     image_->SetSize(w_size, h_size);
     image_->Render();

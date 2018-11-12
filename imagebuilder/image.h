@@ -15,7 +15,7 @@ private:
     std::vector<std::vector<Color>> matrix_; //Матрица цветов пикселей
     std::vector<std::shared_ptr<Drawable>> drawables_; //Список всех фигур
     size_t width_, height_;
-    Color background_ = Color::EmptyColor();
+    Color background_;
 public:
     Image();
 
