@@ -1,6 +1,5 @@
 #include <iostream>
 #include "image.h"
-#include "drawables/vector.h"
 #include "drawables/rounded-vector.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) :
@@ -11,17 +10,16 @@ Image::Image(size_t width, size_t height, Color background, std::vector<std::sha
 Image::Image() :
     width_(0), height_(0), background_(Color::EmptyColor()) {}
 
-Image::Image(std::string path) : background_(Color::Green()){
+Image::Image(std::string path) : background_(Color::EmptyColor()){
     //TODO загрузка изображения из файла
     width_ = 0;
     height_ = 0;
-
-    background_ = Color::Green();
-    Vector* test_ptr = new Vector(0.2, 0.8, 1, 0.4, 0.1, Color::Black());
+    background_ = Color(0.1, 255, 0, 0);
+    Vector* test_ptr = new Vector(0.2, 0.8, 1, 0.4, 0.1, Color(0.6, 0, 0, 0));
     std::shared_ptr<Drawable> ptr(test_ptr);
     drawables_.push_back(ptr);
 
-    RoundedVector* test_ptr1 = new RoundedVector(0.7, 0.4, 0.2, 0.15, 0.05, Color::Blue());
+    RoundedVector* test_ptr1 = new RoundedVector(0.7, 0.4, 0.2, 0.15, 0.05, Color(0.5, 0, 0, 255));
     std::shared_ptr<Drawable> ptr1(test_ptr1);
     drawables_.push_back(ptr1);
 }
@@ -32,7 +30,7 @@ void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
 void Image::Render() {
     for(size_t i = 0; i < width_; ++i) {
         for(size_t j = 0; j < height_; ++j) {
-            matrix_[i][j] = background_;
+            matrix_[i][j] = Color::White().CombineWith(background_);
             for(int k = 0; k < drawables_.size(); ++k) {
                 matrix_[i][j] = matrix_[i][j].CombineWith(drawables_[k]->GetPointColor((double) i / (double) width_,
                         (double) (height_ - j - 1) / (double) height_));
