@@ -18,6 +18,9 @@ public:
     static Color Red();
     static Color Green();
     static Color Blue();
+    static Color Orange();
+    static Color Cyan();
+    static Color Magenta();
     double GetRed() const;
     double GetGreen() const;
     double GetBlue() const;

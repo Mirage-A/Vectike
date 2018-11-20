@@ -63,3 +63,18 @@ Color Color::Blue() {
     Color c(1, 0, 0, 255);
     return c;
 }
+
+Color Color::Cyan() {
+    Color c(1, 0, 255, 255);
+    return c;
+}
+
+Color Color::Orange() {
+    Color c(1, 255, 165, 0);
+    return c;
+}
+
+Color Color::Magenta() {
+    Color c(1, 255, 0, 255);
+    return c;
+}

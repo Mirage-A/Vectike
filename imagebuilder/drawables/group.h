@@ -5,9 +5,8 @@
 
 //Группа, которая состоит из нескольких фигур. Преобразования можно совершать над всей группой сразу.
 class Group : public Drawable {
-protected:
-    std::vector<std::shared_ptr<Drawable>> drawables_list_;
 public:
+    std::vector<std::shared_ptr<Drawable>> drawables_list_;
     Group() {}
 
     Group(std::vector<std::shared_ptr<Drawable>> drawables_list) : drawables_list_(drawables_list) {}

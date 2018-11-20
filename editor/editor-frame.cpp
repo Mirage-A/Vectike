@@ -14,7 +14,7 @@ EditorFrame::EditorFrame(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
 
     WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
     //Магические константы. Если начальный размер окна 250х250, то само изображение за вычетом границ окна имеет вот такой размер.
-    size_t w_size = 234, h_size = 211;
+    size_t w_size = 484, h_size = 461;
     editor_logic.LoadImageA("", w_size, h_size);
     for(size_t i = 0; i < w_size; ++i) {
         for(size_t k = 0; k < h_size; ++k) {
@@ -67,7 +67,7 @@ int WINAPI EditorFrame::WindowCreation(HINSTANCE &hInstance, HINSTANCE &hPrevIns
             AppName, // Заголовок окна
             WS_OVERLAPPEDWINDOW, // Стиль окна
             CW_USEDEFAULT, 0, // Горизонтальная и вертикальная позиции окна
-            250, 250, // Ширина и высота окна
+            500, 500, // Ширина и высота окна
             NULL, // Хендл родительского окна
             NULL, // Хендл меню
             hInst, // Идентификатор приложения
