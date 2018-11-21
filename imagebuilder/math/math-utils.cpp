@@ -7,3 +7,13 @@ double MathUtils::GetAngle(double sin, double cos) {
     return acos(cos);
 
 }
+
+double MathUtils::GetAngle(Point p) {
+    double range = GetRange(p);
+    if (range == 0) return 0;
+    return GetAngle(p.y / range, p.x / range);
+}
+
+double MathUtils::GetRange(Point p) {
+    return sqrt(p.x * p.x + p.y * p.y);
+}

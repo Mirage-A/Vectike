@@ -3,6 +3,7 @@
 #include "drawables/rounded-vector.h"
 #include "drawables/circle.h"
 #include "drawables/group.h"
+#include "drawables/polygon.h"
 
 Image::Image(size_t width, size_t height, Color background, std::vector<std::shared_ptr<Drawable>> &drawables) :
         width_(width), height_(height), background_(background),drawables_(drawables) {
@@ -17,6 +18,13 @@ Image::Image(std::string path) : background_(Color::EmptyColor()){
     width_ = 0;
     height_ = 0;
     background_ = Color(0.1, 255, 0, 0);
+    std::vector<Point> poly_nodes {
+        Point(0.1,0.1),
+        Point(0.2, 1.2),
+        Point(0.4, 0.7),
+        Point(1.5, 0.8),
+        Point(0.8, 0.05)
+    };
     std::vector<Drawable*> tmp {
         new RoundedVector(0.3, 0.8, 0.3, 0.6, 0.05, Color::Red()),
         new RoundedVector(0.3, 0.8, 0.4, 0.8, 0.05, Color::Red()),
@@ -41,8 +49,9 @@ Image::Image(std::string path) : background_(Color::EmptyColor()){
         new RoundedVector(0.69, 0.5, 0.79, 0.5, 0.03, Color::Orange()),
 
         new RoundedVector(0.85, 0.35, 0.85, 0.5, 0.03, Color::Cyan()),
-        new Circle(0.9, 0.35, 0.05, 0.03, Color::Cyan())
+        new Circle(0.9, 0.35, 0.05, 0.03, Color::Cyan()),
 
+        new Polygon(poly_nodes, 0.04, Color::Orange())
     };
     std::shared_ptr<Group> group = std::shared_ptr<Group>(new Group());
     for (Drawable* it : tmp) {
