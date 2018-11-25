@@ -2,6 +2,6 @@
 
 Color FilledCircle::GetPointColor(double x, double y) const {
     Point p = GetOriginalPoint(x, y);
-    double range = sqrt(p.x * p.x + p.y * p.y);
-    return (range <= radius_) ? color_ : Color::EmptyColor();
+    double sqrange = p.x * p.x + p.y * p.y;
+    return (sqrange <= MathUtils::sqr(radius_)) ? color_ : Color::EmptyColor();
 }

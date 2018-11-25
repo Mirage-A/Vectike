@@ -65,12 +65,13 @@ void Image::SetDrawables(std::vector<std::shared_ptr<Drawable>> &drawables) {
 }
 
 void Image::Render() {
-    for(size_t i = 0; i < width_; ++i) {
-        for(size_t j = 0; j < height_; ++j) {
+    for(int i = 0; i < width_; ++i) {
+        for(int j = 0; j < height_; ++j) {
             matrix_[i][j] = Color::White().CombineWith(background_);
+            double x = i / (double) width_;
+            double y = (height_ - j - 1) / (double) height_;
             for(int k = 0; k < drawables_.size(); ++k) {
-                matrix_[i][j] = matrix_[i][j].CombineWith(drawables_[k]->GetPointColor((double) i / (double) width_,
-                        (double) (height_ - j - 1) / (double) height_));
+                matrix_[i][j] = matrix_[i][j].CombineWith(drawables_[k]->GetPointColor(x, y));
             }
         }
     }
