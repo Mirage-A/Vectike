@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "image.h"
 #include "drawables/rounded-vector.h"
 #include "drawables/circle.h"

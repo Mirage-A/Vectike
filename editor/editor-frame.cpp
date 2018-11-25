@@ -13,15 +13,10 @@ EditorFrame::EditorFrame(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
 {
 
     WindowCreation(hInstance,hPrevInstance,lpCmdLine,nCmdShow);
-    //Магические константы. Если начальный размер окна 250х250, то само изображение за вычетом границ окна имеет вот такой размер.
+    //Магические константы. Если начальный размер окна 500x500, то само изображение за вычетом границ окна имеет вот такой размер.
     size_t w_size = 484, h_size = 461;
     editor_logic.LoadImageA("", w_size, h_size);
-    for(size_t i = 0; i < w_size; ++i) {
-        for(size_t k = 0; k < h_size; ++k) {
-            Color pixel_color = editor_logic.image_->GetPixelColor(i, k);
-            EditorFrame::editor_logic.DrawPixel(dc, i, k, pixel_color.GetRed(), pixel_color.GetGreen(), pixel_color.GetBlue());
-        }
-    }
+    editor_logic.DrawImage(dc, w_size, h_size);
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -39,7 +34,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
     return 0;
 }
-// Точка входа в программу - функция WinMain
 int WINAPI EditorFrame::WindowCreation(HINSTANCE &hInstance, HINSTANCE &hPrevInstance,
                    LPSTR &lpCmdLine, int nCmdShow)
 {
@@ -76,6 +70,7 @@ int WINAPI EditorFrame::WindowCreation(HINSTANCE &hInstance, HINSTANCE &hPrevIns
     ShowWindow(hWnd, SW_SHOW); // Отображаем окно
     UpdateWindow(hWnd); // Перерисовываем окно
     EditorFrame::dc = GetDC(hWnd);
+
     return msg.wParam;
 }
 int WINAPI EditorFrame::CloseWindow() {
