@@ -33,11 +33,11 @@ void EditorLogic::DrawImage(HDC &dc, size_t w_size, size_t h_size) {
 
     long redraw = clock() - st;
     std::cout << "Redrawing (size " << w_size << "x" << h_size << ") finished in " << redraw << " ms" << std::endl;
-    std::cout << "Степень неоптимальности:" << std::endl;
-    std::cout << "  Егор: " << render / (double) (render + redraw) * 100 << "%" << std::endl;
-    std::cout << "  Гриша: " << redraw / (double) (render + redraw) * 100 << "%" << std::endl;
-    std::string dibilushka_name = render < redraw ? "Гриша" : "Егор";
-    std::cout << dibilushka_name << " дибилушка, оптимизируй свой донный код!" << std::endl;
+    std::cout << "Stepen' neoptimalnosti:" << std::endl;
+    std::cout << "  Egor: " << render / (double) (render + redraw) * 100 << "%" << std::endl;
+    std::cout << "  Grisha: " << redraw / (double) (render + redraw) * 100 << "%" << std::endl;
+    std::string dibilushka_name = render < redraw ? "Grisha" : "Egor";
+    std::cout << dibilushka_name << " dibilushka, optimizirui svoy donniy code!" << std::endl;
     std::cout << std::endl;
 }
 EditorLogic::EditorLogic() {
